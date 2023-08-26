@@ -28,8 +28,8 @@ $(PROTOC_GEN_GO):
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 predict-api.pb.go: predict-api/grpc_predict_v2.proto | $(PROTOC_GEN_GO) $(PROTOC)
-	mkdir -p go/v2
-	protoc --go_out=./go --go_opt=paths=source_relative --go-grpc_out=./go/v2 --go-grpc_opt=paths=source_relative  predict-api/grpc_predict_v2.proto
+	mkdir -p go
+	protoc --go_out=./go --go_opt=paths=source_relative --go-grpc_out=./go/ --go-grpc_opt=paths=source_relative  predict-api/grpc_predict_v2.proto
 
 predict-api.pb.py: predict-api/grpc_predict_v2.proto | $(PROTOC)
 	mkdir -p python
